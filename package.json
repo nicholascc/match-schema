@@ -1,0 +1,16 @@
+{
+  "name": "match-schema",
+  "version": "0.1.0",
+  "description": "A package for asserting that an object matches a schema",
+  "main": "index.js",
+  "scripts": {
+    "test": "SET NODE_ENV=test && mocha ./tests/*.spec.js"
+  },
+  "author": "Nicholas C (nicholas2591@gmail.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {}
+}
