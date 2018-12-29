@@ -24,6 +24,8 @@ npm install match-schema
 ## Syntax:
 
 ```javascript
+const matcher = require('match-schema')
+
 const schema = {
   type: 'object', // Makes sure that the object to be matched is an object
   
@@ -56,6 +58,16 @@ const schema = {
       'nonnegative'
     ]
   }
+}
+
+const json = loadVerifiedJsonFileFromSomeFarawayPlace()
+
+const {matched, errorKey} = matcher.match(json, schema) // Checks if object json fits schema schema.
+
+if(matched) {             // Matched is a true or false variable which tells whether the object in field json matched the schema provided
+  console.log('Matched!');
+} else {
+  console.log('Failed at', errorKey) // If matched is false, then errorKey will be the property where the problem was. e.g. '.foo.bar'
 }
 ```
 
