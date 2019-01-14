@@ -4,7 +4,7 @@
   "description": "A package for asserting that an object matches a schema",
   "main": "index.js",
   "scripts": {
-    "test": "SET NODE_ENV=test && mocha ./tests/*.spec.js"
+    "test": "SET NODE_ENV=test && mocha"
   },
   "author": "Nicholas C (nicholas2591@gmail.com)",
   "license": "MIT",

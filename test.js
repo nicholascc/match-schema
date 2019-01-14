@@ -199,4 +199,26 @@ describe('The match() function', function() {
 
     expect(jsonSchema.match(json, schema).matched).to.equal(true)
   })
+
+  it('Allows a string that fits the required alphabet', function() {
+    const schema = {
+      type: 'string',
+      alphabet: 'hetnskae-_$'
+    }
+
+    const json = 'the-snake'
+
+    expect(jsonSchema.match(json, schema).matched).to.equal(true)
+  })
+
+  it('Does not allow a string that does not fit alphabet', function() {
+    const schema = {
+      type: 'string',
+      alphabet: 'hetnskae-_$'
+    }
+
+    const json = 'the-snake#'
+
+    expect(jsonSchema.match(json, schema).matched).to.equal(false)
+  })
 })

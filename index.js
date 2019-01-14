@@ -23,7 +23,17 @@ function match(value, schema) {
       }
     } else if(schema.type === 'string') {            // For string
       if(typeof value === 'string') {
-
+        if(schema.alphabet !== undefined) {
+          for(i in value) {
+            const char = value[i];
+            if(!schema.alphabet.includes(char)) {
+              return {
+                matched: false,
+                errorKey: undefined
+              }
+            }
+          }
+        }
       } else {
         return {
           matched: false,
