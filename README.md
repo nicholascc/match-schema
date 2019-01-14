@@ -57,6 +57,11 @@ const schema = {
       'integer',
       'nonnegative'
     ]
+  },
+  
+  alphabetRestrictedString: {  // Makes sure that alphabetRestrictedString only uses letters from the lowercase alphabet.
+    type: 'string',
+    alphabet: 'abcdefghijklmnopqrstuvwxyz'
   }
 }
 
@@ -78,4 +83,4 @@ if(matched) {             // Matched is a true or false variable which tells whe
 * `nonnegative`
 
 
-`string` No possible requirements
+`string` No possible requirements, but has additional `.alphabet` property which declares an alphabet to be used for the string.
