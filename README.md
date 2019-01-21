@@ -65,7 +65,7 @@ const schema = {
   }
 }
 
-const json = loadVerifiedJsonFileFromSomeFarawayPlace()
+const json = loadUntrustedJsonFileFromSomeFarawayPlace()
 
 const {matched, errorKey} = matcher.match(json, schema) // Checks if object json fits schema schema.
 
