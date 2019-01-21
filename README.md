@@ -27,7 +27,7 @@ npm install match-schema
 const matcher = require('match-schema')
 
 const schema = {
-  type: 'object', // Makes sure that the object to be matched is an object
+  type: 'object', // Makes sure that the object to be matched is an object. MAKE SURE TO DO THIS OR THE SCHEMA WILL ALWAYS MATCH!!!
   
   foo: {          // Makes sure that .foo is a string
     type: 'string'
