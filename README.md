@@ -62,6 +62,20 @@ const schema = {
   alphabetRestrictedString: {  // Makes sure that alphabetRestrictedString only uses letters from the lowercase alphabet.
     type: 'string',
     alphabet: 'abcdefghijklmnopqrstuvwxyz'
+  },
+  
+  lengthRestrictedString {  // Makes sure that lengthRestrictedString is between 50 and 100 in length.
+    type: 'string',
+    maxLength 100,
+    minLength 50
+  },
+  
+  array: {
+    type: 'array',  // Makes sure array is an array
+    element: {  // Makes sure every element is a string...
+      type: 'string',
+      alphabet: 'abcdefghijklmnopqrstuvwxyz'  // ...and only uses letters from the lowercase alphabet.
+    }
   }
 }
 
