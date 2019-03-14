@@ -83,4 +83,7 @@ if(matched) {             // Matched is a true or false variable which tells whe
 * `nonnegative`
 
 
-`string` No possible requirements, but has additional `.alphabet` property which declares an alphabet to be used for the string.
+`string` No possible requirements, but some additional `.alphabet` properties outside of `.type` and `.requires`:
+* `.alphabet` - All characters which are legal to exist in the string.
+* `.maxLength` - Maximum length of the string.
+* `.minLength` - Minimum length of the string.
