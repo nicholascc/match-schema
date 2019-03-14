@@ -221,4 +221,58 @@ describe('The match() function', function() {
 
     expect(jsonSchema.match(json, schema).matched).to.equal(false)
   })
+
+  it('Does not allow an array with schema as object', function() {
+    const schema = {
+      type: 'object'
+    }
+
+    const json = ['element', 'element2']
+
+    expect(jsonSchema.match(json, schema).matched).to.equal(false)
+  })
+
+  it('Allows an array with no element schema', function() {
+    const schema = {
+      type: 'array'
+    }
+
+    const json = ['element', 'element2']
+
+    expect(jsonSchema.match(json, schema).matched).to.equal(true)
+  })
+
+  it('Allows an array with correct elements', function() {
+    const schema = {
+      type: 'array',
+      element: {
+        type: 'string',
+        alphabet: 'abcdefghijklmnopqrstuvwxyz0123456789'
+      }
+    }
+
+    const json = ['element', 'element2']
+
+    expect(jsonSchema.match(json, schema).matched).to.equal(true)
+  })
+
+  it('Does not allow an array with incorrect elements', function() {
+    const schema = {
+      type: 'object',
+      foo: {
+        type: 'array',
+        element: {
+          type: 'string',
+          alphabet: 'abcdefghijklmnopqrstuvwxyz'
+        }
+      }
+    }
+
+    const json = {
+      foo:['element', 'element2']
+    }
+
+    expect(jsonSchema.match(json, schema).matched).to.equal(false)
+    expect(jsonSchema.match(json, schema).errorKey).to.equal('.foo[1]')
+  })
 })
