@@ -62,6 +62,20 @@ const schema = {
   alphabetRestrictedString: {  // Makes sure that alphabetRestrictedString only uses letters from the lowercase alphabet.
     type: 'string',
     alphabet: 'abcdefghijklmnopqrstuvwxyz'
+  },
+  
+  lengthRestrictedString {  // Makes sure that lengthRestrictedString is between 50 and 100 in length.
+    type: 'string',
+    maxLength 100,
+    minLength 50
+  },
+  
+  array: {
+    type: 'array',  // Makes sure array is an array
+    element: {  // Makes sure every element is a string...
+      type: 'string',
+      alphabet: 'abcdefghijklmnopqrstuvwxyz'  // ...and only uses letters from the lowercase alphabet.
+    }
   }
 }
 
@@ -83,4 +97,7 @@ if(matched) {             // Matched is a true or false variable which tells whe
 * `nonnegative`
 
 
-`string` No possible requirements, but has additional `.alphabet` property which declares an alphabet to be used for the string.
+`string` No possible requirements, but some additional `.alphabet` properties outside of `.type` and `.requires`:
+* `.alphabet` - All characters which are legal to exist in the string.
+* `.maxLength` - Maximum length of the string.
+* `.minLength` - Minimum length of the string.
