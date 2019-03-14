@@ -49,7 +49,7 @@ function match(value, schema) {
       }
     } else if(schema.type === 'string') {            // For string
       if(typeof value === 'string') {
-        if(schema.alphabet !== undefined) {
+        if(schema.alphabet) {
           for(i in value) {
             const char = value[i];
             if(!schema.alphabet.includes(char)) {
@@ -57,6 +57,24 @@ function match(value, schema) {
                 matched: false,
                 errorKey: undefined
               }
+            }
+          }
+        }
+
+        if(schema.maxLength) {
+          if(value.length > schema.maxLength) {
+            return {
+              matched: false,
+              errorKey: undefined
+            }
+          }
+        }
+
+        if(schema.minLength) {
+          if(value.length < schema.minLength) {
+            return {
+              matched: false,
+              errorKey: undefined
             }
           }
         }

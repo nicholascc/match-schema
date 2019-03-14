@@ -275,4 +275,27 @@ describe('The match() function', function() {
     expect(jsonSchema.match(json, schema).matched).to.equal(false)
     expect(jsonSchema.match(json, schema).errorKey).to.equal('.foo[1]')
   })
+
+  it('Does not allow a string that is too long', function() {
+    const schema = {
+      type: 'string',
+      maxLength: 5
+    }
+
+    const json = 'toolong'
+
+    expect(jsonSchema.match(json, schema).matched).to.equal(false)
+  })
+
+  it('Does not allow a string that is too short', function() {
+    const schema = {
+      type: 'string',
+      maxLength: 5,
+      minLength: 3
+    }
+
+    const json = 'st'
+
+    expect(jsonSchema.match(json, schema).matched).to.equal(false)
+  })
 })
