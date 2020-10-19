@@ -3,8 +3,6 @@ An npm package for asserting that an object matches a schema
 
 ![](https://img.shields.io/appveyor/ci/gruntjs/grunt.svg) ![](https://img.shields.io/badge/license-MIT-green.svg)
 
-## Check for objects matching a schema with ease!
-
 ```javascript
 const matcher = require('match-schema')
 const {matched, errorKey} = matcher.match(json, schema) // Checks if object json fits schema schema.
@@ -86,7 +84,7 @@ const {matched, errorKey} = matcher.match(json, schema) // Checks if object json
 if(matched) {             // Matched is a true or false variable which tells whether the object in field json matched the schema provided
   console.log('Matched!');
 } else {
-  console.log('Failed at', errorKey) // If matched is false, then errorKey will be the property where the problem was. e.g. '.foo.bar'
+  console.log('Failed at', errorKey) // If matched is false, then errorKey will be the property where the first deviation from the schema was found. (e.g. '.foo.bar')
 }
 ```
 
@@ -97,7 +95,7 @@ if(matched) {             // Matched is a true or false variable which tells whe
 * `nonnegative`
 
 
-`string` No possible requirements, but some additional `.alphabet` properties outside of `.type` and `.requires`:
+`string` No possible requirements, but some additional properties outside of `.type` and `.requires`:
 * `.alphabet` - All characters which are legal to exist in the string.
 * `.maxLength` - Maximum length of the string.
 * `.minLength` - Minimum length of the string.
