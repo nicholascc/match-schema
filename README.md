@@ -66,8 +66,8 @@ const schema = {
   
   lengthRestrictedString {  // Makes sure that lengthRestrictedString is between 50 and 100 in length.
     type: 'string',
-    maxLength 100,
-    minLength 50
+    maxLength: 100,
+    minLength: 50
   },
   
   array: {
